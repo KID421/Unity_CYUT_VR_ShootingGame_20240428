@@ -16,7 +16,7 @@ public class FireSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0)) FireBullet();
     }
 
-    private void FireBullet()
+    public void FireBullet()
     {
         // 生成(物件，座標，角度)
         // 暫存子彈 = 生成(子彈預製物，生成點的座標，零角度)

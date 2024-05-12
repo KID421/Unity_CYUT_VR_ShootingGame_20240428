@@ -3,9 +3,9 @@
 public class HpSystem : MonoBehaviour
 {
     [SerializeField, Header("血量"), Range(0, 500)]
-    private float hp;
+    protected float hp;
 
-    protected void Damage(float damage)
+    protected virtual void Damage(float damage)
     {
         // 血量扣除傷害值
         hp -= damage;
