@@ -8,6 +8,8 @@ public class HpPlayer : HpSystem
     private Image imgHp;
     [SerializeField, Header("血量文字")]
     private TMP_Text textHp;
+    [SerializeField, Header("武器系統")]
+    private FireSystem fireSystem;
 
     private string enemyAttackArea = "敵人攻擊";
     private float hpMax;
@@ -23,7 +25,7 @@ public class HpPlayer : HpSystem
     {
         if (other.name.Contains(enemyAttackArea))
         {
-            Damage(50);
+            Damage(20);
         }
     }
 
@@ -38,5 +40,12 @@ public class HpPlayer : HpSystem
         if (hp <= 0) return;
         base.Damage(damage);
         UpdateUI();
+    }
+
+    protected override void Dead()
+    {
+        base.Dead();
+        // 關閉武器系統
+        fireSystem.enabled = false;
     }
 }

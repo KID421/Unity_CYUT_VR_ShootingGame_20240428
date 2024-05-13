@@ -4,8 +4,6 @@ using System.Collections;       // 協同程序 Coroutine 需要的命名空間
 
 public class EnemySystem : MonoBehaviour
 {
-    [SerializeField, Header("玩家")]
-    private Transform playerPoint;
     [SerializeField, Header("導覽代理器")]
     private NavMeshAgent agent;
     [SerializeField, Header("動畫控制器")]
@@ -13,12 +11,15 @@ public class EnemySystem : MonoBehaviour
     [SerializeField, Header("敵人攻擊區域")]
     private GameObject attackArea;
 
+    private Transform playerPoint;
     private string parMove = "移動數值";
     private string parAttack = "觸發攻擊";
     private bool isAttacking;
 
     private void Awake()
     {
+        playerPoint = GameObject.Find("玩家").transform;
+
         Move();
     }
 
